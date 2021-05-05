@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  category: MyString
+  release: 1
+  img: MyString
+  trailer: MyString
+
+two:
+  name: MyString
+  category: MyString
+  release: 1
+  img: MyString
+  trailer: MyString
