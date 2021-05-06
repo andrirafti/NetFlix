@@ -1,7 +1,7 @@
 import React from 'react';
 import './FilmShow.css'
 export default function FilmShow(props) {
-  const { name, category, release,img,trailer } = props;
+  const { name, category, release,img,trailer,img_cover } = props;
   
   
 
@@ -12,6 +12,7 @@ export default function FilmShow(props) {
     <div className="container">
      
       <img src={img} />
+      <img src={img_cover}/>
       <div>
         <p className="name">{name.length>=12? `${name.substring(0,9)}...`:name}</p>
         </div>

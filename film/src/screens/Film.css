@@ -10,6 +10,12 @@
   height: 100%;
 
 }
+.searching{
+  display: block;
+  margin: 0 auto;
+  width:40%;
+  margin-top: 30px;
+}
 
 .poster img{
   /* width:100%; */
@@ -29,7 +35,7 @@
 .category{
   text-align:center;
   background-color: silver;
- 
+ margin-top: 20px;
   margin: 50px;
   padding: 10px
 }

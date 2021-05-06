@@ -57,6 +57,6 @@ end
 #.require will take in :user because we are in the user controller.. 
 #require: if we were in post controller we should do params.require(:post)
 def film_params
-  params.require(:film).permit(:name,:release,:img,:trailer,:category)
+  params.require(:film).permit(:name,:release,:img,:trailer,:category,:img_cover)
 end
 end

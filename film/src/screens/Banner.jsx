@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import FilmShow from '../components/FilmShow';
 import { getAllFilms } from '../services/films'
 import './Banner.css'
 const Banner = () => {
@@ -12,12 +13,15 @@ const Banner = () => {
     };
     fetchData()
   }, [])
-  console.log(movie)
+  
   return (
+   
     <header className="banner"
+      
     style={{backgroundImage: `url(${movie.img_cover})`}}
     
     >
+    
     
         <div className="banner_buttons">
         

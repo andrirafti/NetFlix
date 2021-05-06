@@ -10,6 +10,7 @@ import movieTrailer from 'movie-trailer'
 
 const Film = () => {
   const [film, setFilm] = useState([]);
+  const [search, setSearch] = useState('');
   const [trailerUrl,setTrailerUrl]=useState("")
   const {isAuthenticated} =useAuth0()
   
@@ -20,8 +21,18 @@ const Film = () => {
       
     };
     fetchFilms();
-  },[])
+  }, [])
+  // console.log(film)
+  const filterCategory = film.filter((val) => {
+    if (film.length == 0) {
+     console.log("Err no movie found")
+   }
+    else {
+      return val.name.toLowerCase().includes(search.toLowerCase()) || val.category.toLowerCase().includes(search.toLowerCase())
+    }
+  })
 
+  console.log(filterCategory)
 
 
   //for youtube//
@@ -50,14 +61,25 @@ const Film = () => {
   return (
     isAuthenticated&&(
       <div className='posters'>
-        <h1 className='category'>Action/Adventure</h1>
+       
+        <h1 className='category'> Netflix Originals</h1>
+        <input className="searching" placeholder="Search 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       <div className="poster">
-        {film.map((val) => (
-          <FilmShow className="img"
-            img={val.img}
-            name={val.name}
-            />
-           
+          {filterCategory.map((val) => (
+            
+          // <FilmShow className="img"
+          //   img={val.img}
+          //   name={val.name}
+          //   />
+            //pretty much doing the below made FilmShow.jsx useless tbh.. //
+            <div className="container">
+            <img className="img"
+              src={val.img}
+              onClick={() => handleClick(val)}
+                alt={val.name}
+              />
+             {val.name.length>=12? `${val.name.substring(0,9)}...`:val.name}
+            </div>
         ))}
           </div>
         {trailerUrl&&  <YouTube videoId={trailerUrl} opts={opts}/>}
