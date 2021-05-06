@@ -1,0 +1,35 @@
+.poster{
+  padding: 20px;;
+  height: 100%;
+
+}
+
+.posters{
+ overflow: scroll;
+ overflow-x: scroll;
+  height: 100%;
+
+}
+
+.poster img{
+  /* width:100%; */
+  /* object-fit: contain; */
+  max-height: 130px;
+  transition: transform 450ms;
+  /* margin-top: 50px; */
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+ 
+}
+.poster img:hover{
+  transform: scale(1.08);
+  opacity: 1;
+}
+.category{
+  text-align:center;
+  background-color: silver;
+ 
+  margin: 50px;
+  padding: 10px
+}
