@@ -24,12 +24,10 @@ const Film = () => {
   }, [])
   // console.log(film)
   const filterCategory = film.filter((val) => {
-    if (film.length == 0) {
-     console.log("Err no movie found")
-   }
-    else {
+    
+    
       return val.name.toLowerCase().includes(search.toLowerCase()) || val.category.toLowerCase().includes(search.toLowerCase())
-    }
+    
   })
 
   console.log(filterCategory)
@@ -48,7 +46,8 @@ const Film = () => {
     //keeps video closed if its playing which automatically it will//
     if (trailerUrl){
       setTrailerUrl('');
-    } else{
+    } else {
+      window.scrollTo(0,document.body.scrollHeight)
       //movieTrailer is built into the react-youtube//
       movieTrailer(movie?.name || "").then((url)=>{
       const urlParams= new URLSearchParams(new URL(url).search);
