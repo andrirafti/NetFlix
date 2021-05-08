@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getOneFilm } from '../services/films'
-import {useParams,useHistory} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+import './FilmDetail.css'
+
 const FilmDetail = () => {
   const [film, setFilm] = useState([])
   const params = useParams();
@@ -17,14 +19,14 @@ const FilmDetail = () => {
   
   return (
     <div>
+        <button  className="Button" onClick={()=>history.push("/Movies")} > X  </button>
       <header>
-        <h1>
-          {film.name}
+        <h1 className="film" >
+          <label> {film.name}</label>
         </h1>
-        <img src={film.img} />
-        <p>{film.category}</p>
-        <p>{film.release}</p>
-        <button onClick={()=>history.push("/Movies")} >🔙</button>
+        <img className="img" src={film.img} />
+        <p className="film">{film.category}</p>
+        <p className="film">{film.release}</p>
         </header>
 
     </div>

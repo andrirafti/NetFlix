@@ -6,6 +6,7 @@ import Film from './screens/Film'
 import Banner from './screens/Banner'
 import Banner2 from'./screens/Banner2'
 import FilmDetail from './screens/FilmDetail'
+import FilmCreate from './screens/FilmCreate'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Nav2 />
       
       <Switch>
-      
+      <Route exact path="/Create"><FilmCreate/></Route>
       <Route exact path="/Movies/:id"><FilmDetail/></Route>
       <Route  exact path="/Movies"><Film/></Route>
         <Route exact path="/"> <Banner/> <Banner2/> </Route>

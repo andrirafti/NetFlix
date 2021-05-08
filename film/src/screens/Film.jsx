@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { getAllFilms } from '../services/films'
 import { useAuth0 } from "@auth0/auth0-react"
+import Aos from "aos"
+import "aos/dist/aos.css";
 import Banner from './Banner'
 //youtube and movietrailer go together for youtube clips//
 import YouTube from "react-youtube"
@@ -13,7 +15,7 @@ const Film = () => {
   const [search, setSearch] = useState('');
   const [trailerUrl,setTrailerUrl]=useState("")
   const {isAuthenticated} =useAuth0()
-  
+  //get all films//
   useEffect(()=>{
     const fetchFilms=async()=>{
       const films = await getAllFilms();
@@ -22,15 +24,18 @@ const Film = () => {
     };
     fetchFilms();
   }, [])
-  // console.log(film)
+ //filter for category or names//
   const filterCategory = film.filter((val) => {
     
     
       return val.name.toLowerCase().includes(search.toLowerCase()) || val.category.toLowerCase().includes(search.toLowerCase())
     
   })
-
-  console.log(filterCategory)
+// Aos is the below//
+  useEffect(()=>{
+    Aos.init({duration:1000});
+//can use fadeleft, fade right,etc..
+  },[])
 
 
   //for youtube//
@@ -59,11 +64,11 @@ const Film = () => {
 
   return (
     isAuthenticated&&(
-      <div className='posters'>
+      <div   className='posters'>
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-      <div className="poster">
+      <div data-aos="fade-down" className="poster">
           {filterCategory.map((val) => (
             
           // <FilmShow className="img"
