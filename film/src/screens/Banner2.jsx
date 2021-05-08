@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react"
 
 
-const Banner = () => {
+const Banner2 = () => {
   const [movie, setMovie] = useState([]);
   const {isAuthenticated} =useAuth0()
   const [trailerUrl, setTrailerUrl] = useState("")
@@ -56,17 +56,14 @@ const Banner = () => {
  //handleclick takcles the RANDOM movie showing on the header, so just leave it as movie and it will play it.
   //The reason we dont need to do movie.name is because handleClick has val.name built into the else feature!//
   return (
-    isAuthenticated&&(
+    !isAuthenticated&&(
     <div>
       <header className="banner"
       style={{backgroundImage: `url(${movie.img_cover})`}}
       >
 
         <div className="banner_buttons">
-          <button onClick={() => handleClick(movie)} className="banner_button">▶️ Play </button>
-          
-          <button onClick={() => history.push(`/Movies/${movie.id}`)} className="banner_button2"> ⏯ More Info </button>
-         
+          <button onClick={() => handleClick(movie)} className="banner_button">▶️ Play </button>         
           
               
               
@@ -82,4 +79,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner2

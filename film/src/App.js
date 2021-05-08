@@ -4,18 +4,21 @@ import Nav from './Nav.jsx/Nav'
 import Nav2 from './Nav.jsx/Nav2'
 import Film from './screens/Film'
 import Banner from './screens/Banner'
+import Banner2 from'./screens/Banner2'
+import FilmDetail from './screens/FilmDetail'
 
 function App() {
   return (
     <div>
-      <Nav />
+      <Nav
+      />
       <Nav2 />
-      <Banner/>
+      
       <Switch>
       
-      
-      <Route exact path="/Movies"><Film/></Route>
-        <Route exact path="/"></Route>
+      <Route exact path="/Movies/:id"><FilmDetail/></Route>
+      <Route  exact path="/Movies"><Film/></Route>
+        <Route exact path="/"> <Banner/> <Banner2/> </Route>
         </Switch>
       
     </div>

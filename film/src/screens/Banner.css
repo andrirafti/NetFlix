@@ -36,7 +36,7 @@
   padding-top: 0.5rem;
   background-color:red;
   max-height: 100px; 
-  position:absolute;
+  /* position:absolute; */
   left:150px;
   bottom:100px;
 } 
@@ -51,12 +51,12 @@
   padding-left: 2rem;
   padding-right: 2rem;
   margin-left: 1.0rem;
-  margin-top: 18.0rem;
+  margin-top: 30.0rem;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   background-color:red;
   max-height: 100px; 
-  position:absolute;
+  
   left:20px;
   bottom:100px;
 } 

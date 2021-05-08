@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { getAllFilms } from '../services/films'
-import FilmShow from '../components/FilmShow'
-import {useAuth0} from "@auth0/auth0-react"
+import { useAuth0 } from "@auth0/auth0-react"
+import Banner from './Banner'
 //youtube and movietrailer go together for youtube clips//
 import YouTube from "react-youtube"
 import './Film.css'
@@ -60,9 +60,9 @@ const Film = () => {
   return (
     isAuthenticated&&(
       <div className='posters'>
-       
+       <Banner/>
         <h1 className='category'> Netflix Originals</h1>
-        <input className="searching" placeholder="Search 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       <div className="poster">
           {filterCategory.map((val) => (
             

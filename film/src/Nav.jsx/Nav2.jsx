@@ -13,7 +13,7 @@ import {useAuth0} from "@auth0/auth0-react"
 
 const Nav2 = () => {
   const {isAuthenticated} =useAuth0()
-  
+  //if the user is authetnciated then it can see the other parts of NAV
   return (
     isAuthenticated&&(
     <div className="nav">
