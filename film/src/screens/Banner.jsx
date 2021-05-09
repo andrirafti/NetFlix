@@ -25,7 +25,7 @@ const Banner = () => {
     };
     fetchData()
   }, [])
-  console.log(movie.id)
+  
 
 
   
