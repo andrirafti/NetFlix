@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { getAllFilms } from '../services/films'
 import { useAuth0 } from "@auth0/auth0-react"
+import Loading from './Loading'
 import Aos from "aos"
 import "aos/dist/aos.css";
 import Banner from './Banner'
@@ -14,16 +15,21 @@ const Film = () => {
   const [film, setFilm] = useState([]);
   const [search, setSearch] = useState('');
   const [trailerUrl,setTrailerUrl]=useState("")
+  const [isLoaded, setIsLoaded] = useState(false);
   const {isAuthenticated} =useAuth0()
   //get all films//
   useEffect(()=>{
     const fetchFilms=async()=>{
       const films = await getAllFilms();
       setFilm(films);
+      setIsLoaded(true)
       
     };
     fetchFilms();
   }, [])
+  if (!isLoaded){
+    return <Loading/>
+  }
  //filter for category or names//
   const filterCategory = film.filter((val) => {
     
