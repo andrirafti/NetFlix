@@ -42,6 +42,7 @@ body {
 
 h1 {
   font-family:monospace;
+  color:black;
 }
 
 @keyframes slide {

@@ -7,12 +7,14 @@ import './Film.css'
 import movieTrailer from 'movie-trailer'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react"
+import Loading from './Loading'
 
 
 const Banner2 = () => {
   const [movie, setMovie] = useState([]);
   const {isAuthenticated} =useAuth0()
   const [trailerUrl, setTrailerUrl] = useState("")
+  const [isLoaded, setIsLoaded] = useState(false);
   const history=useHistory()
   
   //Use effect for random pics//
@@ -55,6 +57,11 @@ const Banner2 = () => {
   }
  //handleclick takcles the RANDOM movie showing on the header, so just leave it as movie and it will play it.
   //The reason we dont need to do movie.name is because handleClick has val.name built into the else feature!//
+  
+  if (!isLoaded){
+    return <Loading/>
+  }
+
   return (
     !isAuthenticated&&(
     <div>

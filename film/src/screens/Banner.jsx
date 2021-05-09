@@ -7,11 +7,14 @@ import './Film.css'
 import movieTrailer from 'movie-trailer'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react"
+import Loading from './Loading'
+
 
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
-  const {isAuthenticated} =useAuth0()
+  const {isAuthenticated} =useAuth0();
+  const [isLoaded, setIsLoaded] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("")
   const history=useHistory()
   
@@ -26,6 +29,9 @@ const Banner = () => {
     fetchData()
   }, [])
   
+  if (!isLoaded){
+    return <Loading/>
+  }
 
 
   
