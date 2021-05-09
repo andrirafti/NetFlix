@@ -23,10 +23,14 @@ const Banner2 = () => {
       const request = await getAllFilms();
       //Below i will attack one random thing inside the array using math.floor/math.random.
       setMovie(request[Math.floor(Math.random() * request.length )])
+      setIsLoaded(true)
       return request
     };
     fetchData()
   }, [])
+  if (!isLoaded){
+    return <Loading/>
+  }
   console.log(movie.id)
 
 
@@ -58,9 +62,6 @@ const Banner2 = () => {
  //handleclick takcles the RANDOM movie showing on the header, so just leave it as movie and it will play it.
   //The reason we dont need to do movie.name is because handleClick has val.name built into the else feature!//
   
-  if (!isLoaded){
-    return <Loading/>
-  }
 
   return (
     !isAuthenticated&&(

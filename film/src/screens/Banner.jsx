@@ -24,6 +24,7 @@ const Banner = () => {
       const request = await getAllFilms();
       //Below i will attack one random thing inside the array using math.floor/math.random.
       setMovie(request[Math.floor(Math.random() * request.length )])
+      setIsLoaded(true);
       return request
     };
     fetchData()
