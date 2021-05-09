@@ -27,9 +27,7 @@ const Film = () => {
     };
     fetchFilms();
   }, [])
-  if (!isLoaded){
-    return <Loading/>
-  }
+  
  //filter for category or names//
   const filterCategory = film.filter((val) => {
     
@@ -68,6 +66,10 @@ const Film = () => {
     }
   }
 
+
+  if (!isLoaded){
+    return <Loading/>
+  }
   return (
     isAuthenticated&&(
       <div   className='posters'>
