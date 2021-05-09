@@ -22,7 +22,7 @@ const FilmDetail = () => {
         <button  className="Button" onClick={()=>history.push("/Movies")} > X  </button>
       <header>
         <h1 className="film" >
-          <label> {film.name}</label>
+           {film.name}
         </h1>
         <img className="img" src={film.img} />
         <p className="film">{film.category}</p>

@@ -2,6 +2,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 40%;}
+  h1{
+    color:white
+  }
 
 
 @media only screen 
@@ -26,6 +29,7 @@
 .film{
   text-align: center;
   font-size:30px;
+  color:white
 }
   }
   @media only screen 
@@ -50,6 +54,7 @@
 .film{
   text-align: center;
   font-size:50px;
+  color:white
 }
   }
   @media only screen 
