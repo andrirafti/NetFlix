@@ -28,6 +28,10 @@ const Film = () => {
     fetchFilms();
   }, [])
   
+  const sortYearLowHigh=film.sort((a,b)=>a.release-b.release)
+  const sortYearHighLow=film.sort((a,b)=>b.release-a.release)
+
+
  //filter for category or names//
   const filterCategory = film.filter((val) => {
     
@@ -78,7 +82,7 @@ const Film = () => {
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         <select  value={film.release} >
               <option disabled>Sort By: </option>
-            <option >Oldest To Newest</option>
+            <option } >Oldest To Newest</option>
             <option> Newest to Oldest</option>
             </select>
       <div data-aos="fade-down" className="poster">
