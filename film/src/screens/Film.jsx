@@ -76,6 +76,11 @@ const Film = () => {
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <select  value={film.release} >
+              <option disabled>Sort By: </option>
+            <option >Oldest To Newest</option>
+            <option> Newest to Oldest</option>
+            </select>
       <div data-aos="fade-down" className="poster">
           {filterCategory.map((val) => (
             
