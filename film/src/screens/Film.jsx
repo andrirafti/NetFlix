@@ -28,9 +28,9 @@ const Film = () => {
     fetchFilms();
   }, [])
   
-  const sortYearLowHigh=film.sort((a,b)=>a.release-b.release)
-  const sortYearHighLow=film.sort((a,b)=>b.release-a.release)
-
+  const sortYearLowHigh=film.map(val=>val).sort((a,b)=>a.release-b.release)
+  const sortYearHighLow=film.map(val=>val).sort((a,b)=>b.release-a.release)
+ 
 
  //filter for category or names//
   const filterCategory = film.filter((val) => {
@@ -75,16 +75,17 @@ const Film = () => {
     return <Loading/>
   }
   return (
-    isAuthenticated&&(
+    !isAuthenticated&&(
       <div   className='posters'>
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-        <select  value={film.release} >
-              <option disabled>Sort By: </option>
-            <option } >Oldest To Newest</option>
-            <option> Newest to Oldest</option>
-            </select>
+        <form onSubmit={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>
+          <button>Sort By Year :  Old</button>
+          </form>
+          <form onSubmit={(e) => e.preventDefault(setFilm(sortYearHighLow))}>
+          <button>Sort By Year: New</button>
+          </form>
       <div data-aos="fade-down" className="poster">
           {filterCategory.map((val) => (
             
