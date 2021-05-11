@@ -1,6 +1,8 @@
 import {postFilm} from '../services/films'
 import {useState,useEffect} from 'react'
-import {useHistory,} from 'react-router-dom'
+import { useHistory, } from 'react-router-dom'
+import { useAuth0 } from "@auth0/auth0-react"
+
 import Aos from "aos"
 import "aos/dist/aos.css";
 import Tilt from 'react-vanilla-tilt'
@@ -8,8 +10,8 @@ import './FilmCreate.css'
 
 
 const FilmCreate=()=>{
-  const[isCreated,setCreated]=useState(false);
-  
+  const [isCreated, setCreated] = useState(false);
+  const {isAuthenticated} =useAuth0()
   const history=useHistory();
   //For AOS//
   useEffect(()=>{
@@ -48,6 +50,7 @@ const FilmCreate=()=>{
       history.push(`/Movies`)
     }
   return (
+    isAuthenticated &&(
     <div className="input" data-aos="fade-up">
       <Tilt >
       <form onSubmit={handleSubmit}>
@@ -89,8 +92,8 @@ const FilmCreate=()=>{
 
 
     </div>
+  )
   );
-
-
+  
 }
 export default FilmCreate
