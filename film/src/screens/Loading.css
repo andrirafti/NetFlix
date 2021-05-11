@@ -14,6 +14,7 @@ body {
   left:50%;
   padding:10vmin;
   position:fixed;
+  color:black;
   text-align:center;
   top:50%;
   transform:translate(-50%, -50%);
