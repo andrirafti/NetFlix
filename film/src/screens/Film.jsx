@@ -78,7 +78,7 @@ const Film = () => {
     return <Loading/>
   }
   return (
-    !isAuthenticated&&(
+    isAuthenticated&&(
       <div   className='posters'>
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
