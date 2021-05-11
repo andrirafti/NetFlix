@@ -75,17 +75,14 @@ const Film = () => {
     return <Loading/>
   }
   return (
-    !isAuthenticated&&(
+    isAuthenticated&&(
       <div   className='posters'>
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-        <form onSubmit={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>
-          <button>Sort By Year :  Old</button>
-          </form>
-          <form onSubmit={(e) => e.preventDefault(setFilm(sortYearHighLow))}>
-          <button>Sort By Year: New</button>
-          </form>
+          <button className="sort" onClick={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>Sort:Old</button>
+          <button className="sort"onClick={(e) => e.preventDefault(setFilm(sortYearHighLow))} >Sort:New</button>
+       
       <div data-aos="fade-down" className="poster">
           {filterCategory.map((val) => (
             
