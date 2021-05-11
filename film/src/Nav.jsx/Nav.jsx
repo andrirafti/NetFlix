@@ -21,7 +21,7 @@ const Nav = () => {
     !isAuthenticated&&(
     <div className="nav">
       <Profile />
-      <Link className="netflix" to='/'> NETFLIX</Link>
+      <Link className="netflix" to='/'> ANDRIFLIX</Link>
       {/* <Link className='movies'to='/Movies'> Movies</Link>
       <Link className="movies" to='/TopHits'>Trending Now</Link> */}
 

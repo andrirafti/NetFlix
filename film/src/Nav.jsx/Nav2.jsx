@@ -19,7 +19,7 @@ const Nav2 = () => {
     <div className="nav">
         <Profile />
         <div>
-      <Link className="netflix" to='/'> NETFLIX</Link>
+      <Link className="netflix" to='/'> ANDRIFLIX</Link>
       <Link className='movies'to='/Movies'> Movies</Link>
           <Link className="movies" to='/Create'>Create </Link>
           </div>

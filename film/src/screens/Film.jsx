@@ -27,15 +27,18 @@ const Film = () => {
     };
     fetchFilms();
   }, [])
-  
+  //sort release date//
   const sortYearLowHigh=film.map(val=>val).sort((a,b)=>a.release-b.release)
-  const sortYearHighLow=film.map(val=>val).sort((a,b)=>b.release-a.release)
+  const sortYearHighLow = film.map(val => val).sort((a, b) => b.release - a.release)
+
+  //sort alphabetically by letters name (a-z)//
+  const sortAlphabet = film.map(val => val).sort((a, b) => a.name.localeCompare(b.name))
+  const sortAlphabetBackwards = film.map(val => val).sort((a, b) => b.name.localeCompare(a.name))
+
  
 
  //filter for category or names//
   const filterCategory = film.filter((val) => {
-    
-    
       return val.name.toLowerCase().includes(search.toLowerCase()) || val.category.toLowerCase().includes(search.toLowerCase())
     
   })
@@ -75,14 +78,23 @@ const Film = () => {
     return <Loading/>
   }
   return (
-    isAuthenticated&&(
+    !isAuthenticated&&(
       <div   className='posters'>
        <Banner/>
         <h1 className='category'> Netflix Originals</h1>
         <input className="searching" placeholder="Search: Name/Category 🔍" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-          <button className="sort" onClick={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>Sort:Old</button>
-          <button className="sort"onClick={(e) => e.preventDefault(setFilm(sortYearHighLow))} >Sort:New</button>
+          {/* <button className="sort" onClick={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>Sort:Old</button>
+        <button className="sort" onClick={(e) => e.preventDefault(setFilm(sortYearHighLow))} >Sort:New</button> */}
        
+        <select  className="sort" multiple  >
+          <option disabled >Sort By:</option>
+          <option onClick={(e) => e.preventDefault(setFilm(sortYearHighLow))}> Sort: New</option>
+          <option onClick={(e) => e.preventDefault(setFilm(sortYearLowHigh))}>Sort: Old</option>
+          <option onClick={(e) => e.preventDefault(setFilm(sortAlphabetBackwards))}>Sort Alphabetically:Z-A</option>
+          <option onClick={(e)=>e.preventDefault(setFilm(sortAlphabet))}>Sort Alphabetically:A-Z</option>
+          </select>
+          
+   
       <div data-aos="fade-down" className="poster">
           {filterCategory.map((val) => (
             
